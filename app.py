@@ -60,12 +60,12 @@ if uploaded_file is not None:
   if og_counter == 0:
     message = '"No Retinopathy"(0) was predicted with ' + str(message) + '.' + str(decimal) + '% accuracy.'
   elif og_counter == 1:
-    message = '"Mild Nonproliferative Retinopathy"(1) was predicted with ' + str(message) + '.' + str(decimal) + '% accuracy.'
+    message = '"Mild Nonproliferative Retinopathy"(1) was predicted with ' + str(message) + '.' + str(decimal) + '% confidence.'
   elif og_counter == 2:
-    message = '"Moderate Nonproliferative Retinopathy"(2) was predicted with ' + str(message) + '.' + str(decimal) + '% accuracy.'
+    message = '"Moderate Nonproliferative Retinopathy"(2) was predicted with ' + str(message) + '.' + str(decimal) + '% confidence.'
   elif og_counter == 3:
-    message = '"Severe Nonproliferative Retinopathy"(3) was predicted with ' + str(message) + '.' + str(decimal) + '% accuracy.'
+    message = '"Severe Nonproliferative Retinopathy"(3) was predicted with ' + str(message) + '.' + str(decimal) + '% confidence.'
   elif og_counter == 4:
-    message = '"Proliferative Retinopathy"(4) was predicted with ' + str(message) + '.' + str(decimal) + '% accuracy.'
+    message = '"Proliferative Retinopathy"(4) was predicted with ' + str(message) + '.' + str(decimal) + '% confidence.'
 
   st.markdown('<p class="big-font">' + message + '</p>', unsafe_allow_html=True)
