@@ -4,4 +4,3 @@ pandas
 opencv-python
 keras
 tensorflow
-libGL
