@@ -23,7 +23,7 @@ st.markdown("""
 st.title("Diabetic Retinopathy Detector")
 st.header("Upload a file of a fundus image and we will return 0-4, with 0 being no retinopathy and 4 being an extreme case.")
 
-model = load_model('/content/Finished_Model.h5')
+model = load_model('streamlit-drdetection.h5')
 
 def img2arr(filepath):
   im = cv2.imread(filepath)
