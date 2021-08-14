@@ -95,7 +95,11 @@ if uploaded_file is not None:
   result = model.predict(file)
   result = result.tolist()
   result = result[0]
-
+  new_result = result
+  result_arr = []
+  for i in new_result:
+    result_arr.append(str(i)[2:4] + '.' + str(i)[4] + '% confidence')
+  
   og = 0
   og_counter = 0
   counter = 0
@@ -118,6 +122,6 @@ if uploaded_file is not None:
     message = '"Severe Nonproliferative Retinopathy"(3) was predicted with ' + str(message) + '.' + str(decimal) + '% confidence.'
   elif og_counter == 4:
     message = '"Proliferative Retinopathy"(4) was predicted with ' + str(message) + '.' + str(decimal) + '% confidence.'
-  st.write(result)
+  st.write(result_arr)
 
   st.markdown('<p class="big-font">' + message + '</p>', unsafe_allow_html=True)
