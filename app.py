@@ -5,6 +5,15 @@ import cv2
 import os
 from keras.models import load_model
 from time import sleep
+import tensorflow.keras.backend as K
+
+@st.cache(allow_output_mutation=True)
+def load_the_model():
+    model = load_model('FinishedModel.h5')
+    model._make_predict_function()
+    model.summary()  # included to make it visible when model is reloaded
+    return model
+
 
 st.set_page_config(layout="wide")
 
@@ -20,7 +29,7 @@ st.markdown("""
 st.title("Diabetic Retinopathy Detector")
 st.header("Upload a file of a fundus image and we will return 0-4, with 0 being no retinopathy and 4 being an extreme case.")
 
-model = load_model('streamlit-drdetection.h5')
+model = load_the_model()
 
 def callback_func():
   
