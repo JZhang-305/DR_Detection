@@ -147,6 +147,6 @@ if uploaded_file is not None:
     message = '"Severe Nonproliferative Retinopathy"(3) was predicted with ' + str(message) + '.' + str(decimal) + '% confidence.'
   elif og_counter == 4:
     message = '"Proliferative Retinopathy"(4) was predicted with ' + str(message) + '.' + str(decimal) + '% confidence.'
-  st.write(result_arr)
+  #st.write(result_arr)
 
   st.markdown('<p class="big-font">' + message + '</p>', unsafe_allow_html=True)
