@@ -32,7 +32,9 @@ model = load_the_model()
 
 def callback_func():
   
-    try:
+  try:
+      
+
       file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
       opencv_image = cv2.imdecode(file_bytes, 1)
       copy_image = opencv_image
@@ -47,6 +49,16 @@ def callback_func():
       result = model.predict(file)
       result = result.tolist()
       result = result[0]
+      result_array = np.array(result)
+      result_array *= 100
+      result = result_array.tolist()
+
+      st.write(result)
+      new_result = result
+      result_arr = []
+      for i in new_result:
+        result_arr.append(str(i)[2:4] + '.' + str(i)[4] + '% confidence')
+
       og = 0
       og_counter = 0
       counter = 0
@@ -55,14 +67,9 @@ def callback_func():
           og = i
           og_counter = counter
         counter += 1
-      new_result = result
-    
-      result_arr = []
-      for i in new_result:
-        result_arr.append(str(i)[2:4] + '.' + str(i)[4] + '% confidence')
-    
-      message = str(og)[2:4]
-      decimal = str(og)[4]
+
+      message = str(og)[0:2]
+      decimal = str(og)[3]
 
       if og_counter == 0:
         message = '"No Retinopathy"(0) was predicted with ' + str(message) + '.' + str(decimal) + '% confidence.'
@@ -74,8 +81,8 @@ def callback_func():
         message = '"Severe Nonproliferative Retinopathy"(3) was predicted with ' + str(message) + '.' + str(decimal) + '% confidence.'
       elif og_counter == 4:
         message = '"Proliferative Retinopathy"(4) was predicted with ' + str(message) + '.' + str(decimal) + '% confidence.'
-
       st.write(result_arr)
+
       st.markdown('<p class="big-font">' + message + '</p>', unsafe_allow_html=True)
       
     except:
@@ -116,7 +123,7 @@ if uploaded_file is not None:
   new_result = result
   result_arr = []
   for i in new_result:
-    result_arr.append(str(i)[2:4] + '.' + str(i)[4] + '% confidence')
+    result_arr.append(str(i)[0:2] + '.' + str(i)[3] + '% confidence')
   
   og = 0
   og_counter = 0
@@ -127,8 +134,8 @@ if uploaded_file is not None:
       og_counter = counter
     counter += 1
 
-  message = str(og)[2:4]
-  decimal = str(og)[4]
+  message = str(og)[0:2]
+  decimal = str(og)[3]
 
   if og_counter == 0:
     message = '"No Retinopathy"(0) was predicted with ' + str(message) + '.' + str(decimal) + '% confidence.'
