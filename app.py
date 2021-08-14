@@ -108,6 +108,7 @@ if uploaded_file is not None:
   result = model.predict(file)
   result = result.tolist()
   result = result[0]
+  st.write(result)
   new_result = result
   result_arr = []
   for i in new_result:
