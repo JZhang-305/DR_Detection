@@ -85,7 +85,7 @@ def callback_func():
 
       st.markdown('<p class="big-font">' + message + '</p>', unsafe_allow_html=True)
       
-    except:
+  except:
       sleep(5)
 
 
