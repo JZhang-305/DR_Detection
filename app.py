@@ -47,7 +47,12 @@ def callback_func():
           og = i
           og_counter = counter
         counter += 1
-
+      new_result = result
+    
+      result_arr = []
+      for i in new_result:
+        result_arr.append(str(i)[2:4] + '.' + str(i)[4] + '% confidence')
+    
       message = str(og)[2:4]
       decimal = str(og)[4]
 
@@ -62,7 +67,7 @@ def callback_func():
       elif og_counter == 4:
         message = '"Proliferative Retinopathy"(4) was predicted with ' + str(message) + '.' + str(decimal) + '% confidence.'
 
-      st.write(result)
+      st.write(result_arr)
       st.markdown('<p class="big-font">' + message + '</p>', unsafe_allow_html=True)
       
     except:
