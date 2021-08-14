@@ -9,7 +9,7 @@ import tensorflow.keras.backend as K
 
 @st.cache(allow_output_mutation=True)
 def load_the_model():
-    model = load_model('FinishedModel.h5')
+    model = load_model('Finished_Model.h5')
     model._make_predict_function()
     model.summary()  # included to make it visible when model is reloaded
     return model
