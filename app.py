@@ -30,11 +30,16 @@ st.header("Upload a file of a fundus image and we will return 0-4, with 0 being 
 
 model = load_the_model()
 
+#file_bytes
+#opencv_image
+#copy_
+
+
+
 def callback_func():
   
   try:
       
-
       file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
       opencv_image = cv2.imdecode(file_bytes, 1)
       copy_image = opencv_image
